@@ -36,7 +36,7 @@ public class DBService {
 		
 		Cliente cli1 = new Cliente(null, "Linus Torvalds", "11052350763", "torvaslds@mail.com", "123");
 		Cliente cli2 = new Cliente(null, "Bezerra Menezes", "1555566322", "bezerra@mail.com", "556");
-		Cliente cli3 = new Cliente(null, "Klarc Kent", "33322225455", "super@mail.com", "665");
+		Cliente cli3 = new Cliente(null, "Klark Kent", "33322225455", "super@mail.com", "665");
 		Cliente cli4 = new Cliente(null, "Bruce Wane", "5455333333", "bat@mail.com", "996");
 		Cliente cli5 = new Cliente(null, "Mark Hunter", "333344444", "hunter@mail.com", "996");
 		
