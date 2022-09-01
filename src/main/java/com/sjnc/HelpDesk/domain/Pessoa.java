@@ -10,11 +10,13 @@ import java.util.stream.Collectors;
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
-import javax.persistence.*;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import org.hibernate.validator.constraints.br.CPF;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.sjnc.HelpDesk.domain.enums.Perfil;
@@ -29,6 +31,7 @@ public abstract class Pessoa implements Serializable {
 	protected Integer id;
 	protected String  nome;
 	
+	@CPF
 	@Column(unique = true)
 	protected String  cpf;
 	
