@@ -12,7 +12,7 @@ import com.sjnc.HelpDesk.services.TecnicoService;
 
 @RestController
 @RequestMapping(value = "/tecnicos")
-public class TecnicoResource {
+public class TecnicoResource ;
 	// localhost:8080/tecnicos/1
 	
 	@Autowired
@@ -24,7 +24,10 @@ public class TecnicoResource {
 		return ResponseEntity.ok().body(obj);
 	}
 
-}
+{{local}}/tecnicos
 
 
 Testando o push na máquina compaq
+
+ git commit -m "End point findAll para tecnico criado"
+
