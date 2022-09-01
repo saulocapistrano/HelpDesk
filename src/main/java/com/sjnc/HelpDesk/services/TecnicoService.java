@@ -50,6 +50,15 @@ public class TecnicoService {
 			return repository.save(oldObj);
 		}
 		
+		public void delete(Integer id) {
+			Tecnico obj = findById(id);
+			if(obj.getChamados().size()>0) {
+				throw new DataIntegrityViolationException("Técnico possui oredens de serviço, não pode ser excluído");
+			}else {
+				repository.deleteById(id);
+			}
+		}
+		
 
 		private void validaPorCpfEEmail(TecnicoDTO objDTO) {
 			Optional <Pessoa> obj = pessoaRepository.findByCpf(objDTO.getCpf());
@@ -63,6 +72,5 @@ public class TecnicoService {
 		
 		}
 
-			
-		
+				
 }
