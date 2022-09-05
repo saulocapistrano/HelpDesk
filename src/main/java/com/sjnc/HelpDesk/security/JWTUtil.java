@@ -32,7 +32,7 @@ public class JWTUtil {
 			Date expirationsDate = claims.getExpiration();
 			Date now = new Date(System.currentTimeMillis());
 			
-			if(username !=null && expirationDate != null && now.before(expirationsDate)) {
+			if(username !=null && expirationsDate != null && now.before(expirationsDate)) {
 			return true;			
 			}
 		}
@@ -44,12 +44,17 @@ public class JWTUtil {
 			return Jwts.parser().setSigningKey(secret.getBytes()).parseClaimsJws(token).getBody();
 			
 		} catch (Exception e) {
-			// TODO: handle exception
-		};
+			return null;
+		}
 	}
 
 	public String getUsername(String token) {
-		// TODO Auto-generated method stub
+		Claims claims = getClaims(token);
+		if(claims != null) {
+			return claims.getSubject();
+		}
 		return null;
+	
+	
 	}
 }
