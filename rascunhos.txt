@@ -1,33 +1,168 @@
-package com.sjnc.HelpDesk.resources;
+login alternativo
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login<h2>HelpDesk</h2></title>
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
+    <link rel="stylesheet" href="login.component.css">
+</head>
+<body>
+    <div id="login-container">
+        <h1>Login HelpDesk</h1>
+        <form action="">
+            <label for="email" >E-mail</label>
+            <input 
+            [formControl]="email" required
+            [(ngModel)]="creds.email" 
+            type="email" 
+            id="email" 
+            name="email" 
+            placeholder="Digite seu e-mail" 
+            autocomplete="off" >
+            <label for="password">Senha</label>
+            <input 
+            [formControl]="senha" required
+            [(ngModel)]="creds.senha" 
+            type="password" 
+            name="password" 
+            id="password" 
+            placeholder="Insira sua senha">
+            <input [disabled]="!validaCampos()" type="submit"  name="submit" value="Login">
+        </form>
+  
+   </div>
+</body>
+</html>
 
-import com.sjnc.HelpDesk.domain.Tecnico;
-import com.sjnc.HelpDesk.services.TecnicoService;
 
-@RestController
-@RequestMapping(value = "/tecnicos")
-public class TecnicoResource ;
-	// localhost:8080/tecnicos/1
-	
-	@Autowired
-	private TecnicoService service;
-	
-	@GetMapping(value = "/{id}") // path variable  
-	public ResponseEntity<Tecnico> findById(@PathVariable Integer id){
-		Tecnico obj = this.service.findById(id);
-		return ResponseEntity.ok().body(obj);
-	}
+css alternativo
 
-{{local}}/tecnicos
+/* registro geral*/
+/* Fazendo primeiro um resete em tudo, zerando margens, bordas e etc...*/
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family:  Helvetica;
+    color: #323232;
+    border: none;
+
+}
+
+textarea :focus, input :focus{
+    outline: none;
+}
+a{
+    font-size: .8rem;
+}
+a :hover{
+    color: #08558B;
+}
+/* container do login*/
+#login-container{
+    background-color: #fff;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px 30px;
+    margin-top: 10vh;
+    border-radius: 12px;
+    text-align: center;
+}
+/* formulário*/
+form{
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+label, input{
+    display: block;
+    width: 100%;
+    text-align: left;
+}
+label{
+    font-weight: bold;
+    font-size: .8rem;
+}
+input{
+    border-bottom: 2px solid #323232;
+    padding: 10px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+input :focus{
+    border-bottom: 2px solid #85558B;
+}
+#forgot-pass{
+    text-align: right;
+    display: block;
+}
+input[type="submit"]{
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: none;
+    height: 40px;
+    border-radius: 20px;
+    margin-top: 30px;
+    color: #fff;
+    background-color: #08558B;
+    cursor: pointer;
+}
+input[type="submit"] :hover{
+    color: #1b223c;
+    transition: 5s;
+}
+
+/* registar*/
+#register-container p{
+    margin-bottom: 10px;
+
+}
 
 
-Testando o push na máquina compaq
+// para inserir o toastr nas dependencias do app.module
+ToastrModule.forRoot({
+      timeOut:4000,
+	closeButton: true,
+	progressBar: true
+    })
 
- git commit -m "End point findAll para tecnico criado"
+// para inserir de forma glogal no styles.css 
+@import '../node_modules/ngx-toastr/toastr.css';
 
+
+MatFormFieldModule,
+MatCheckboxModule,
+MatSnackBarModule,
+MatSidenavModule,
+MatButtonModule,
+MatInputModule,
+MatListModule,
+
+
+
+
+
+
+
+
+
+
+
+
+Bem vindo a aplicação web, HelpDesk. Nesta versão está sendo aplicados os conceitos de desenvolvimento web com autenticação JWT
+orientação a objetos, conceitos de desenvolvimento de aplicações em microserviços, usando a stack Angular(front-end), SpringBoot(back-end) e uso de banco de dados MySQL.
+
+
+
+
+
+
+
+
+<mat-nav-list class="sidenav" mode ="side">

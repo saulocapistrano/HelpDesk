@@ -24,9 +24,9 @@ import com.sjnc.HelpDesk.domain.dtos.TecnicoDTO;
 import com.sjnc.HelpDesk.services.TecnicoService;
 
 @RestController
-@RequestMapping(value = "/tecnicos") // o erro pode ser esse 31.08.2022
+@RequestMapping(value = "/tecnicos") 
 public class TecnicoResource {
-	// localhost:8080/tecnicos/1
+	
 	
 	@Autowired
 	private TecnicoService service;
